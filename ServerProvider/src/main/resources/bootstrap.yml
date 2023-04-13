@@ -1,0 +1,36 @@
+server:
+  port: 8890
+spring:
+  application:
+    name: settle
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+#      discovery:
+#        server-addr: 192.168.0.91:8849
+#        register-enabled: true
+#        namespace: 477add60-fbfd-4a13-982b-d17eb8bab529
+#      config:
+#        contextPath: /nacos
+#        server-addr: 192.168.0.91:8849
+#        username: nacos
+#        password: nacos
+#        namespace: 477add60-fbfd-4a13-982b-d17eb8bab529
+#        file-extension: yml
+#        extension-configs:
+#          - data-id: weroom-gateway.yml
+#            group: DEFAULT_GROUP
+      #集群环境
+      discovery:
+        server-addr: 172.17.1.20:8848,172.17.1.21:8848
+        register-enabled: true
+        namespace: weroom-life
+      config:
+        contextPath: /nacos
+        server-addr: 172.17.1.20:8848,172.17.1.21:8848
+        username: nacos
+        password: nacos
+        namespace: weroom-life
+        file-extension: yml
+
